@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earn From Now</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #004B4B, #003333);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 40px 20px;
+    }
+
+    .bubble-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bubble {
+      position: absolute;
+      background-color: #FFD700;
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    .bubble:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 15%; }
+    .bubble:nth-child(2) { width: 60px; height: 60px; top: 65%; left: 80%; }
+    .bubble:nth-child(3) { width: 50px; height: 50px; top: 35%; left: 5%; }
+    .bubble:nth-child(4) { width: 70px; height: 70px; top: 85%; left: 45%; }
+    .bubble:nth-child(5) { width: 40px; height: 40px; top: 20%; left: 70%; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .box {
+      background-color: rgba(0, 102, 102, 0.9);
+      padding: 25px 30px;
+      border-radius: 12px;
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.8;
+      z-index: 1;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta {
+      background-color: #FFD700;
+      color: #000;
+      padding: 14px 28px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      margin-top: 30px;
+      transition: 0.3s ease;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .cta:hover {
+      background-color: #E6BE00;
+      transform: scale(1.06);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    .form-section {
+      background-color: rgba(0, 85, 85, 0.9);
+      margin: 50px auto 30px;
+      padding: 30px 25px;
+      border-radius: 12px;
+      max-width: 650px;
+      z-index: 1;
+      position: relative;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .form-section input[type="submit"] {
+      background-color: #FFD700;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .form-section input[type="submit"]:hover {
+      background-color: #E6BE00;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #cccccc;
+      z-index: 1;
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+        padding: 0 10px;
+      }
+      .box, .form-section {
+        padding: 20px;
+        font-size: 15px;
+      }
+      .cta {
+        font-size: 15px;
+        padding: 10px 20px;
+      }
+      .form-section input {
+        font-size: 15px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubble-wrapper">
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+    <span class="bubble"></span>
+  </div>
+
+  <h1>💼 Earn From Now</h1>
+
+  <div class="box">
+    <p>
+      Your first project is your life. So start now. It doesn't matter what people say — even if you have no resources, with passion, you can achieve anything. Register yourself and begin a new journey.
+    </p>
+    <button class="cta" onclick="document.getElementById('registerForm').scrollIntoView({ behavior: 'smooth' })">Register Now</button>
+  </div>
+
+  <div class="form-section">
+    <h2 style="margin-bottom: 20px;">Register Now</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Create Password" required>
+      <input type="submit" value="Submit">
+      <p id="message" style="margin-top: 10px;"></p>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Earn From Now. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (name === '' || email === '' || password === '') {
+        message.textContent = "Please fill out all fields.";
+        message.style.color = "orange";
+        return;
+      }
+
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, email, password }),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.result === "success") {
+          message.textContent = "✅ Registered successfully!";
+          message.style.color = "lightgreen";
+          form.reset();
+        } else {
+          message.textContent = "Something went wrong.";
+          message.style.color = "red";
+        }
+      })
+      .catch(err => {
+        message.textContent = "Error connecting to server.";
+        message.style.color = "red";
+      });
+    });
+  </script>
+</body>
+</html>
